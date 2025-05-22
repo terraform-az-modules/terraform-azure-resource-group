@@ -4,7 +4,7 @@
 module "labels" {
   source          = "terraform-az-modules/tags/azure"
   version         = "1.0.0"
-  name            = var.name
+  name            = var.custom_name == "" ? var.name : var.custom_name
   location        = var.location
   environment     = var.environment
   managedby       = var.managedby
@@ -19,7 +19,7 @@ module "labels" {
 ##-----------------------------------------------------------------------------
 resource "azurerm_resource_group" "default" {
   count    = var.enabled ? 1 : 0
-  name     = format("%s-resource-group", module.labels.name)
+  name     = var.resource_position_prefix ? format("rg-%s", local.name) : format("%s-rg", local.name)
   location = var.location
   tags     = module.labels.tags
 
@@ -36,7 +36,7 @@ resource "azurerm_resource_group" "default" {
 ##---------------------------------------------------------------------------------------------------------------
 resource "azurerm_management_lock" "resource-group-level" {
   count      = var.enabled && var.resource_lock_enabled ? 1 : 0
-  name       = format("%s-rg-lock", var.lock_level)
+  name       = var.resource_position_prefix ? format("rg-lock-%s", local.name) : format("%s-rg-lock", local.name)
   scope      = azurerm_resource_group.default[0].id
   lock_level = var.lock_level
   notes      = var.notes
