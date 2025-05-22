@@ -4,7 +4,7 @@
 variable "custom_name" {
   type        = string
   default     = null
-  description = "Override default naming convention"
+  description = "Define your custom name to override default naming convention"
 }
 
 variable "resource_position_prefix" {
