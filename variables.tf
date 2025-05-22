@@ -41,6 +41,12 @@ variable "repository" {
   }
 }
 
+variable "location" {
+  type        = string
+  default     = null
+  description = "Azure region (e.g. `eastus`, `westus`)."
+}
+
 variable "environment" {
   type        = string
   default     = ""
@@ -71,16 +77,13 @@ variable "deployment_mode" {
   description = "Specifies how the infrastructure/resource is deployed"
 }
 
+##-----------------------------------------------------------------------------
+## Resource Group 
+##-----------------------------------------------------------------------------
 variable "enabled" {
   type        = bool
   default     = true
   description = "Set to false to prevent the module from creating any resources."
-}
-
-variable "location" {
-  type        = string
-  default     = null
-  description = "Azure region (e.g. `eastus`, `westus`)."
 }
 
 variable "create" {

@@ -70,15 +70,29 @@ This table contains both Prerequisites and Providers:
 
 ## Inputs and Outputs
 
-### Inputs
+ ### Inputs
 
-| Name          | Description                                                        | Type         | Default                                            | Required |
-|---------------|--------------------------------------------------------------------|--------------|----------------------------------------------------|:--------:|
-| name          | Name used for resources and naming convention.                     | `string`     | n/a                                                |  yes     |
-| environment   | Deployment environment (e.g., `dev`, `test`, `prod`).              | `string`     | n/a                                                |  no      |
-| location      | Azure region where resources will be deployed.                     | `string`     | n/a                                                |  yes     |
-| resource lock | Protect resources from accidental deletion and modification        | `bool`       | n/a                                                |  no      |
-| lock_level    | Protect resources from accidental deletion and modification        | `string`     | n/a                                                |  no      |
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_create"></a> [create](#input\_create) | Used when creating the Resource Group. | `string` | `"90m"` | no |
+| <a name="input_custom_name"></a> [custom\_name](#input\_custom\_name) | Define your custom name to override default naming convention | `string` | `null` | no |
+| <a name="input_delete"></a> [delete](#input\_delete) | Used when deleting the Resource Group. | `string` | `"90m"` | no |
+| <a name="input_deployment_mode"></a> [deployment\_mode](#input\_deployment\_mode) | Specifies how the infrastructure/resource is deployed | `string` | `"terraform"` | no |
+| <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources. | `bool` | `true` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
+| <a name="input_extra_tags"></a> [extra\_tags](#input\_extra\_tags) | Additional tags (e.g. map(`BusinessUnit`,`XYZ`). | `map(string)` | `null` | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | The order of labels used to construct resource names or tags. If not specified, defaults to ['name', 'environment', 'location']. | `list(any)` | <pre>[<br>  "name",<br>  "environment",<br>  "location"<br>]</pre> | no |
+| <a name="input_location"></a> [location](#input\_location) | Azure region (e.g. `eastus`, `westus`). | `string` | `null` | no |
+| <a name="input_lock_level"></a> [lock\_level](#input\_lock\_level) | Specifies the lock level for the resource group to prevent accidental changes. | `string` | `"CanNotDelete"` | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'terraform-az-modules'. | `string` | `"terraform-az-modules"` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `null` | no |
+| <a name="input_notes"></a> [notes](#input\_notes) | Specifies some notes about the lock. Maximum of 512 characters. Changing this forces a new resource to be created. | `string` | `"This Resource Group is locked by terrafrom"` | no |
+| <a name="input_read"></a> [read](#input\_read) | Used when retrieving the Resource Group. | `string` | `"5m"` | no |
+| <a name="input_repository"></a> [repository](#input\_repository) | Terraform current module repo | `string` | `"https://github.com/terraform-az-modules/terraform-azure-resource-group"` | no |
+| <a name="input_resource_lock_enabled"></a> [resource\_lock\_enabled](#input\_resource\_lock\_enabled) | Enable or disable lock resource | `bool` | `false` | no |
+| <a name="input_resource_position_prefix"></a> [resource\_position\_prefix](#input\_resource\_position\_prefix) | Controls the placement of the resource type keyword (e.g., "rg", "rg-lock") in the resource name.<br><br>- If true, the keyword is prepended: "rg-core-dev".<br>- If false, the keyword is appended: "core-dev-rg".<br><br>This helps maintain naming consistency based on organizational preferences. | `bool` | `true` | no |
+| <a name="input_update"></a> [update](#input\_update) | Used when updating the Resource Group. | `string` | `"90m"` | no |
 
 
 
@@ -90,8 +104,6 @@ This table contains both Prerequisites and Providers:
 | resource_group_location	    | The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created.        |
 | resource_group_name	        | The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created.         |
 | tags	                      | A mapping of tags which should be assigned to the Resource Group.                                                       |
-
-
 
 
 
