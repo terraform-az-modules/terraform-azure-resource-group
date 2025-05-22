@@ -4,7 +4,7 @@
 module "labels" {
   source          = "terraform-az-modules/tags/azure"
   version         = "1.0.0"
-  name            = var.custom_name == "" ? var.name : var.custom_name
+  name            = var.name
   location        = var.location
   environment     = var.environment
   managedby       = var.managedby
@@ -16,7 +16,6 @@ module "labels" {
 
 ##-----------------------------------------------------------------------------
 ## Resource Group – Creates a resource group.
-## Azure automatically deletes any Resources nested within the Resource Group when a Resource Group is deleted.
 ##-----------------------------------------------------------------------------
 resource "azurerm_resource_group" "default" {
   count    = var.enabled ? 1 : 0

@@ -1,13 +1,4 @@
 ##-----------------------------------------------------------------------------
-## Naming convention
-##-----------------------------------------------------------------------------
-variable "custom_name" {
-  type        = string
-  default     = ""
-  description = "Override default naming convention"
-}
-
-##-----------------------------------------------------------------------------
 ## Labels
 ##-----------------------------------------------------------------------------
 variable "name" {
@@ -37,7 +28,7 @@ variable "environment" {
 variable "label_order" {
   type        = list(any)
   default     = ["name", "environment", "location"]
-  description = "Label order, e.g. `name`,`application`,`centralus`."
+  description = "The order of labels used to construct resource names or tags. If not specified, defaults to ['name', 'environment', 'location']."
 }
 
 variable "managedby" {
@@ -49,7 +40,7 @@ variable "managedby" {
 variable "extra_tags" {
   type        = map(string)
   default     = null
-  description = "Variable to pass extra tags."
+  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)."
 }
 
 variable "deployment_mode" {
@@ -61,13 +52,13 @@ variable "deployment_mode" {
 variable "enabled" {
   type        = bool
   default     = true
-  description = "Flag to control the module creation."
+  description = "Set to false to prevent the module from creating any resources."
 }
 
 variable "location" {
   type        = string
   default     = null
-  description = "Location where resource should be created."
+  description = "Azure region (e.g. `eastus`, `westus`)."
 }
 
 variable "create" {
@@ -97,12 +88,13 @@ variable "delete" {
 variable "resource_lock_enabled" {
   type        = bool
   default     = false
-  description = "enable or disable lock resource"
+  description = "Enable or disable lock resource"
 }
 
 variable "lock_level" {
-  type    = string
-  default = "CanNotDelete"
+  type        = string
+  default     = "CanNotDelete"
+  description = "Specifies the lock level for the resource group to prevent accidental changes."
 }
 
 variable "notes" {

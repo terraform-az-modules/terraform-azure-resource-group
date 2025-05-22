@@ -7,7 +7,7 @@ provider "azurerm" {
 ##-----------------------------------------------------------------------------
 module "resource_group" {
   source      = "../../"
-  custom_name = "example"
+  name        = "example"
   environment = "test"
   location    = "North Europe"
 
