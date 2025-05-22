@@ -42,8 +42,8 @@ variable "label_order" {
 
 variable "managedby" {
   type        = string
-  default     = ""
-  description = "ManagedBy"
+  default     = "terraform-az-modules"
+  description = "ManagedBy, eg 'terraform-az-modules'."
 }
 
 variable "extra_tags" {
