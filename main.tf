@@ -4,7 +4,7 @@
 module "labels" {
   source          = "terraform-az-modules/tags/azure"
   version         = "1.0.0"
-  name            = var.custom_name == "" ? var.name : var.custom_name
+  name            = var.custom_name == null ? var.name : var.custom_name
   location        = var.location
   environment     = var.environment
   managedby       = var.managedby

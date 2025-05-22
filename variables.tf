@@ -3,7 +3,7 @@
 ##-----------------------------------------------------------------------------
 variable "custom_name" {
   type        = string
-  default     = ""
+  default     = null
   description = "Override default naming convention"
 }
 
