@@ -11,10 +11,10 @@ variable "resource_position_prefix" {
   type        = bool
   default     = true
   description = <<EOT
-Controls the placement of the resource type keyword (e.g., "vnet", "ddospp") in the resource name.
+Controls the placement of the resource type keyword (e.g., "rg", "lock") in the resource name.
 
-- If true, the keyword is prepended: "vnet-core-dev".
-- If false, the keyword is appended: "core-dev-vnet".
+- If true, the keyword is prepended: "rg-core-dev".
+- If false, the keyword is appended: "core-dev-rg".
 
 This helps maintain naming consistency based on organizational preferences.
 EOT
