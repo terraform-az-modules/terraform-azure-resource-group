@@ -18,7 +18,7 @@ variable "name" {
 
 variable "repository" {
   type        = string
-  default     = "https://github.com/terraform-azure-resource-group"
+  default     = "https://github.com/terraform-az-modules/terraform-azure-resource-group"
   description = "Terraform current module repo"
 
   validation {
@@ -38,12 +38,6 @@ variable "label_order" {
   type        = list(any)
   default     = ["name", "environment", "location"]
   description = "Label order, e.g. `name`,`application`,`centralus`."
-}
-
-variable "business_unit" {
-  type        = string
-  default     = "Corp"
-  description = "Top-level division of your company that owns the subscription or workload that the resource belongs to. In smaller organizations, this tag might represent a single corporate or shared top-level organizational element."
 }
 
 variable "managedby" {
