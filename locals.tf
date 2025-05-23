@@ -2,5 +2,5 @@
 ## Locals 
 ##-----------------------------------------------------------------------------
 locals {
-  name = var.custom_name != "" ? var.custom_name : module.labels.id
+  name = var.custom_name != null ? var.custom_name : module.labels.id
 }
