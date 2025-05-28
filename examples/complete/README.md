@@ -1,35 +1,53 @@
 <!-- BEGIN_TF_DOCS -->
-## Requirements
 
-| Name | Version |
-|------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.6.6 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.116.0 |
+# Azure Resource Group Module
 
-## Providers
+This example demonstrates how to use the `terraform-azure-resource-group` module. It deploys an Azure Resource Group with default or custom configurations using the specified input variables.
 
-No providers.
+---
 
-## Modules
+## ✅ Requirements
 
-| Name | Source | Version |
-|------|--------|---------|
-| <a name="module_resource_group"></a> [resource\_group](#module\_resource\_group) | ../../ | n/a |
+| Name      | Version   |
+|-----------|-----------|
+| Terraform | >= 1.6.6  |
+| Azurerm   | >= 3.116.0|
 
-## Resources
+---
 
-No resources.
+## 🔌 Providers
 
-## Inputs
+No additional providers are explicitly used in this example.
 
-No inputs.
+---
 
-## Outputs
+## 📦 Modules
 
-| Name | Description |
-|------|-------------|
-| <a name="output_resource_group_id"></a> [resource\_group\_id](#output\_resource\_group\_id) | The ID of the Resource Group. |
-| <a name="output_resource_group_location"></a> [resource\_group\_location](#output\_resource\_group\_location) | The Azure Region where the Resource Group should exist. Changing this forces a new Resource Group to be created. |
-| <a name="output_resource_group_name"></a> [resource\_group\_name](#output\_resource\_group\_name) | The Name which should be used for this Resource Group. Changing this forces a new Resource Group to be created. |
-| <a name="output_tags"></a> [tags](#output\_tags) | A mapping of tags which should be assigned to the Resource Group. |
+| Name              | Source   | Version |
+|-------------------|----------|---------|
+| resource_group    | ../../    | n/a     |
+
+---
+
+## 🏗️ Resources
+
+No additional resources are directly defined in this example.
+
+---
+
+## 🔧 Inputs
+
+_No input variables are required for this example._
+
+---
+
+## 📤 Outputs
+
+| Name                          | Description                                                                 |
+|-------------------------------|-----------------------------------------------------------------------------|
+| `resource_group_id`           | The ID of the Resource Group.                                               |
+| `resource_group_location`     | The Azure Region where the Resource Group exists. Changing this forces a new Resource Group to be created. |
+| `resource_group_name`         | The name of the Resource Group. Changing this forces a new Resource Group to be created. |
+| `tags`                        | A mapping of tags assigned to the Resource Group.                          |
+
 <!-- END_TF_DOCS -->
